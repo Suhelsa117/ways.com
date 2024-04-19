@@ -1,0 +1,225 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  body{
+    font-family: montserrat;
+  }
+  nav{
+    background: #FF9800;
+    height: 80px;
+    width: 100%;
+    box-shadow: #131A22 4px 4px 4px ;
+  }
+  label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 100px;
+    font-weight: bold;
+    text-shadow: #131A22 5px 0px 5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  a.active,a:hover{
+    background: #131A22;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #2c3e50;
+      top: 80px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
+  section{
+    background: url(bg1.jpg) no-repeat;
+    background-size: cover;
+    height: calc(100vh - 80px);
+  }
+  /* /* #ribbon{
+    background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQBDgMBIgACEQEDEQH/xAAaAAEBAQADAQAAAAAAAAAAAAACAQADBQYE/8QAGhABAQEBAAMAAAAAAAAAAAAAAAERAiExQf/EABoBAQEBAQEBAQAAAAAAAAAAAAIDAQUGBAD/xAAYEQEBAQEBAAAAAAAAAAAAAAAAAQIREv/aAAwDAQACEQMRAD8A9pCiLArv1ZCiQ4NAoUGHINGrCkSFAtGrFaQoFCtCjYsgViwo3MKRO0a0KNCxO0Wwo0VO1+6xJCT6FaKyjaxFZhYzMzWWszM2QbW1r6RtLg9ZG1Nb5Z1WtHW0/LOvOQokKOzXaqw4MckCjWhwYUGhShRIUgUasKRIUToVYUSFAtYsKJCiVrKqxoUTtFYsZU7QrQokULWKzRhYzMzYNZmQpB6zampacjLV0a2ofkbVRtG0pkelU0dS0/LOujhRIUdKu5ShRIUChVhwYcCjVkJIUToVYUSFArFhRIUidrKshSJhRLVApFSFido1V+tIsido1ljMLGZmaNZm1C4NrJUtS1SQetW1BtUkHpaNvhLR05kerampamqTI2lqWjracyzrqYsSFH1V3qcKDDgUasODCgUChQYUToUoUgw4GmLIcGHEqNUpEKJWjWhJixOhVhIoVlZmZjGbWSnBYbVGnIFrVGG1WQetaNa0bVZkLVo61HVc5Hq6mpalqkyPVtS1NS05keuvhyBDhV6GlCiSFAo1YcGHE6FWQoMOBRqwuUhxO1iwpEhRKhVkKJCSo1VjSLInRqxmYRrMza2C2pa1qVSQUG1aNVkC1KNpWgrILUbWtG1fOQtYa1qWqTIda0bW3ylUkHrVEtTT4Nr5YcCQ4nXpKUKJIUGhShQYUToUpCkSFInWFIUiSFE7RWQ4MhxGjVixCToVYURonRVlRjKyVdS04CVLWqK5gVKFKjarmBRtGrUtXzAo0atoWrSB1qlqWpVcwLW0bWtHVZAtXUtG0bTkHoQokhR8tenpQoMKBRpwoMKJ0KUOBDidEocGFEqzpQoMKJUKUWJCidCrIuNGTYqM1aypUqpTgVLRWpVpE6NoWlQq2YFa0bWtG1fMCpaFW0avE7UtS1uqFquYna1G1rQtVzAtW0bUtG1WZC04UGFHPr1dOFIMKJ0KUKJFgUaUPkYUT0JwoMKI0SkODCiVCqURYnWFFEgBGZijKlSrRpwKlGlQq2QqWhSoWr4idGjaVC19GYFGjaVGrSJ2j0FK0LVpE7RoUrQtVzEtVNG1rR1eRO1zwoMKOTXr6cKDCgUDhQYUCjShwYUSo0ocCHEtCUKDCiVGksRYnQpKjCNZmZsGpfaVaKkCjRpUatkKNClRq+QoWjSo19GU6Fo0qNWynQoU6FWiVChToVfKegoWlaFWkStfVCjM49ewpwozBRpwozBROFEZOjThxmR0JQozJaGkqslQqqjCxmZigVKNZlMhRoVmWyFGjWZ9GQoUKzPoynRo1GVynQ6Csy+UtBQqstlLTjoVWXylX//Z);
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 10px;
+    box-shadow: #0082e6 4px 4px 4px ;
+    float: right;
+    
+  } */
+  /* img{
+    height: 400px;
+    width: 500px;
+  position: relative;
+  left: 20px;
+  bottom: 140px;
+
+
+  }  */
+  
+  /* *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} */
+footer{
+    background-color: #111;
+    margin-top: 130px;
+}
+.footerContainer{
+    width: 100%;
+    padding: 70px 30px 20px ;
+}
+.socialIcons{
+    display: flex;
+    justify-content: center;
+}
+.socialIcons a{
+    text-decoration: none;
+    padding:  10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 50%;
+}
+.socialIcons a i{
+    font-size: 2em;
+    color: black;
+    opacity: 0,9;
+}
+/* Hover affect on social media icon */
+.socialIcons a:hover{
+    background-color: #111;
+    transition: 0.5s;
+}
+.socialIcons a:hover i{
+    color: white;
+    transition: 0.5s;
+}
+.footerNav{
+    margin: 30px 0;
+}
+.footerNav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+.footerNav ul li a{
+    color:white;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 1.3em;
+    opacity: 0.7;
+    transition: 0.5s;
+
+}
+.footerNav ul li a:hover{
+    opacity: 1;
+}
+.footerBottom{
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+}
+.footerBottom p{
+    color: white;
+}
+.designer{
+    opacity: 0.7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin: 0px 5px;
+}
+@media (max-width: 700px){
+    .footerNav ul{
+        flex-direction: column;
+    } 
+    .footerNav ul li{
+        width:100%;
+        text-align: center;
+        margin: 10px;
+    }
+    .socialIcons a{
+        padding: 8px;
+        margin: 4px;
+    }
+}
+.body{
+  text-align: center;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.main{
+  
+  position: relative;
+  left: 60px;
+  top: 40px;
+  display: inline-flex;
+  margin-left: 20px;
+
+
+  
+}
